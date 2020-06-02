@@ -30,9 +30,55 @@ spec:
           type: object
         spec:
           description: MySQLSpec defines the desired state of MySQL
+          properties:
+            dataStoragePath:
+              type: string
+            dataStorageSize:
+              type: string
+            database:
+              type: string
+            image:
+              type: string
+            password:
+              type: string
+            port:
+              format: int32
+              type: integer
+            rootpwd:
+              type: string
+            size:
+              description: 'INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
+                Important: Run "operator-sdk generate k8s" to regenerate code after
+                modifying this file Add custom validation using kubebuilder tags:
+                https://book-v1.book.kubebuilder.io/beyond_basics/generating_crd.html'
+              format: int32
+              type: integer
+            username:
+              type: string
+          required:
+          - dataStoragePath
+          - dataStorageSize
+          - database
+          - image
+          - password
+          - port
+          - rootpwd
+          - size
+          - username
           type: object
         status:
           description: MySQLStatus defines the observed state of MySQL
+          properties:
+            nodes:
+              description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                of cluster Important: Run "operator-sdk generate k8s" to regenerate
+                code after modifying this file Add custom validation using kubebuilder
+                tags: https://book-v1.book.kubebuilder.io/beyond_basics/generating_crd.html'
+              items:
+                type: string
+              type: array
+          required:
+          - nodes
           type: object
       type: object
   version: v1alpha1
